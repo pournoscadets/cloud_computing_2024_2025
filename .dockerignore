@@ -1,0 +1,24 @@
+# Node.js
+node_modules/
+npm-debug.log
+
+# Java
+# target/
+*.class
+*.java
+
+# Python
+__pycache__/
+*.pyc
+
+# Git
+.git/
+.gitignore
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Secrets
+.env
+*.pem

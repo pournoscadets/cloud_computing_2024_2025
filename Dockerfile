@@ -9,7 +9,12 @@ RUN adduser -D $USER
 USER $USER
 WORKDIR $HOME
 
+# .dockerignore working
+COPY . .
 COPY target/demo*.jar my_server.jar
+
+# best practice
+#COPY target/demo*.jar my_server.jar
 
 EXPOSE 8080
 
