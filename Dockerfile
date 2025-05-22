@@ -1,8 +1,8 @@
 FROM eclipse-temurin:21-jre-alpine
-LABEL cloud computing team
+LABEL cloud=computing-team
 
 ARG USER=norootuser
-ENV HOME /home/$USER
+ENV HOME=/home/$USER
 
 # Don't assign a password to a user
 RUN adduser -D $USER
@@ -16,7 +16,7 @@ COPY target/demo*.jar my_server.jar
 # best practice
 #COPY target/demo*.jar my_server.jar
 
-EXPOSE 8080
+EXPOSE 8082
 
 ENTRYPOINT ["java", "-jar", "my_server.jar"]
 CMD ["entrypoint_argument"]
