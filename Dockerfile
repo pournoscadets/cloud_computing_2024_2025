@@ -2,14 +2,17 @@ FROM eclipse-temurin:21-jre-alpine
 LABEL cloud=computing-team
 
 ARG USER=norootuser
-ENV HOME=/home/$USER
+# Bad practice because we don't need a HOMES like a environment variable
+ENV HOMES=/home/$USER
+# Best practice
+# ARG HOMES=/home/$USER
 
 # Don't assign a password to a user
 RUN adduser -D $USER
 USER $USER
-WORKDIR $HOME
+WORKDIR $HOMES
 
-# .dockerignore working
+# .dockerignore working, and it's not a good practice to copy all content
 COPY . .
 COPY target/demo*.jar my_server.jar
 
